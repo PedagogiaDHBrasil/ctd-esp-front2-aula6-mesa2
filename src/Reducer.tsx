@@ -1,8 +1,16 @@
-const Reducer = (state, action) => {
+interface ReducerProps {
+  state?: string | object;
+  notifications: boolean;
+  type?: string;
+}
+
+const Reducer = (state: ReducerProps, action: ReducerProps) => {
+  console.log("foi");
+  
   if (typeof state === "undefined") {
     state = { notifications: false };
   }
-  
+
   if (action.type === "SAVE_SETTINGS") {
     let notifications = action.notifications;
     return { ...state, notifications };
